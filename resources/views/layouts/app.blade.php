@@ -9,6 +9,7 @@
 
   <!-- Styles -->
   @vite('resources/js/app.js')
+  @yield('css')
 </head>
 
 <body>
