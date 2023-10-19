@@ -16,7 +16,16 @@
   @include('partials._navbar')
 
   <main>
+    <div class="container mt-5">
+      @if (session ('message'))
+        <div class="alert alert-success mb-5">
+          {{ session('message') }}
+        </div>
+      @endif
+    </div>
     @yield('main-content')
+
+    @yield('modals')
   </main>
 
 </body>

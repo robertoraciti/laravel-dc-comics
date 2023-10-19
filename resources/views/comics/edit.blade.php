@@ -16,7 +16,7 @@
         </div>
         <div class="col-3">
             <label for="thumb" class="form-label">Copertina</label>
-            <input type="url" name="thumb" id="thumb" class="form-control">
+            <input type="url" name="thumb" id="thumb" class="form-control" value="{{ $comic->thumb}}">
         </div>
         <div class="col-3">
             <label for="price" class="form-label">Prezzo</label>

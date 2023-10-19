@@ -40,7 +40,32 @@
                 <a href="{{ route('comics.edit', $comic) }}">
                     <i class="fa-solid fa-pencil"></i>
                 </a>
-                
+                <a href="#" data-bs-toggle="modal" data-bs-target="#delete-modal-{{$comic->id}}">
+                    <i class="fa-regular fa-trash-can text-danger"></i>
+                </a>
+
+                <div class="modal fade" id="delete-modal-{{ $comic->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina fumetto</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Sicuro di voler eliminare il seguente fumetto : <br>
+                          "{{ $comic->title }}"
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                            <form action="{{ route ('comics.destroy', $comic) }}" method="POST" class="mx-1">
+                                @method ('DELETE')
+                                @csrf
+                                <button class="btn btn-danger">Elimina</button>
+                            </form>                        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </td>
             </tr>
             @endforeach

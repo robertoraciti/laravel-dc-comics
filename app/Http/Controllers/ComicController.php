@@ -43,7 +43,9 @@ class ComicController extends Controller
         $comic->fill($data);
         $comic->save();
 
-        return redirect()->route('comics.show', $comic);
+        return redirect()
+            ->route('comics.show', $comic)
+            ->with('message', 'Creato con successo');
     }
 
     /**
@@ -79,7 +81,9 @@ class ComicController extends Controller
     {
         $data = $request->all();
         $comic->update($data);
-        return redirect()->route('comics.show', $comic);
+        return redirect()
+            ->route('comics.show', $comic)
+            ->with('message', 'Aggiornato con successo');
     }
 
     /**
@@ -88,8 +92,11 @@ class ComicController extends Controller
      * @param  int  $id
      * * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()
+            ->route('comics.index')
+            ->with('message', 'Eliminato con successo');
     }
 }
