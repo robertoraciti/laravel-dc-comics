@@ -37,6 +37,10 @@
                 <a href="{{ route('comics.show', $comic) }}">
                     <i class="fa-regular fa-eye"></i>
                 </a>
+                <a href="{{ route('comics.edit', $comic) }}">
+                    <i class="fa-solid fa-pencil"></i>
+                </a>
+                
                 </td>
             </tr>
             @endforeach
