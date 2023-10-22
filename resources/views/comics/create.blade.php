@@ -64,11 +64,6 @@
         <div class="col-12">
             <label for="description" class="form-label">Descrizione</label>
             <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" value="{{old('description')}}"></textarea>
-            @error('description')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
         </div>
         <div class="col-3 mt-4">
             <button class="btn btn-success">Salva</button>
